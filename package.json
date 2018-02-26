@@ -1,0 +1,40 @@
+{
+  "name": "indexby",
+  "version": "1.0.0",
+  "description": "A utility function to index arrays by any criteria",
+  "main": "dist/indexby.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasturiano/indexby.git"
+  },
+  "keywords": [
+    "index",
+    "array",
+    "helper"
+  ],
+  "author": {
+    "name": "Vasco Asturiano",
+    "url": "http://bl.ocks.org/vasturiano"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasturiano/indexby/issues"
+  },
+  "homepage": "https://github.com/vasturiano/indexby",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --progress --colors --watch",
+    "minify": "uglifyjs dist/indexby.js -o dist/indexby.min.js -c -m",
+    "prepublish": "npm run build && npm run minify"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "uglify-js": "^3.1.0",
+    "webpack": "^3.5.6"
+  }
+}
