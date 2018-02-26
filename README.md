@@ -1,23 +1,23 @@
-# indexBy
+# index-array-by
 
 A utility function to index arrays by any criteria.
 
 `indexBy(list, keyAccessor, multiItem = true)`
 
-[![NPM](https://nodei.co/npm/indexby.png?compact=true)](https://nodei.co/npm/indexby/)
+[![NPM](https://nodei.co/npm/index-array-by.png?compact=true)](https://nodei.co/npm/index-array-by/)
 
 ## Quick start
 
 ```
-import indexBy from 'indexby';
+import indexBy from 'index-array-by';
 ```
 or
 ```
-const indexBy = require('indexby');
+const indexBy = require('index-array-by');
 ```
 or even
 ```
-<script src="//unpkg.com/indexby"></script>
+<script src="//unpkg.com/index-array-by"></script>
 ```
 
 ## Usage example

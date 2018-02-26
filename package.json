@@ -18,13 +18,13 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vasturiano/indexby/issues"
+    "url": "https://github.com/vasturiano/index-array-by/issues"
   },
-  "homepage": "https://github.com/vasturiano/indexby",
+  "homepage": "https://github.com/vasturiano/index-array-by",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --progress --colors --watch",
-    "minify": "uglifyjs dist/indexby.js -o dist/indexby.min.js -c -m",
+    "minify": "uglifyjs dist/index-array-by.js -o dist/index-array-by.min.js -c -m",
     "prepublish": "npm run build && npm run minify"
   },
   "dependencies": {},

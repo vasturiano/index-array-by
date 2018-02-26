@@ -4,7 +4,7 @@ module.exports = {
     entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'indexby.js',
+        filename: 'index-array-by.js',
         libraryTarget: 'umd',
         library: 'indexBy'
     },
