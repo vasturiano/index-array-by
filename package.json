@@ -1,11 +1,11 @@
 {
-  "name": "indexby",
+  "name": "index-array-by",
   "version": "1.0.0",
   "description": "A utility function to index arrays by any criteria",
-  "main": "dist/indexby.min.js",
+  "main": "dist/index-array-by.min.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vasturiano/indexby.git"
+    "url": "git+https://github.com/vasturiano/index-array-by.git"
   },
   "keywords": [
     "index",
