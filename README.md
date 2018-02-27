@@ -2,7 +2,7 @@
 
 A utility function to index arrays by any criteria.
 
-`indexBy(list, keyAccessor, multiItem = true)`
+`indexBy(list, keyAccessors, multiItem = true)`
 
 [![NPM](https://nodei.co/npm/index-array-by.png?compact=true)](https://nodei.co/npm/index-array-by/)
 
@@ -31,12 +31,13 @@ const people = [
 ];
 ```
 
-Use `indexBy` to index it by a given attribute (string type `keyAccessor`) or any other custom criteria (function type `keyAccessor`).
+Use `indexBy` to index it by a given attribute (string type `keyAccessor`) or any other custom criteria (function type `keyAccessor`). You can also pass an array of `keyAccessors` to retrieve a nested object recursively indexed by the multiple keys.
 Use the third parameter (`multiItem`) to indicate whether each key should point to a single item (unadvised if the keys are not unique) or an array of multiple items (default behavior).
+
 ```
 indexBy(people, 'surname', false);
-```
-```
+
+// Result: 
 {
  Doe: { name: 'John', age: 32 },
  Jane: { name: 'Mary', age: 28 },
@@ -44,11 +45,10 @@ indexBy(people, 'surname', false);
 }
 ```
 
-
 ```
 indexBy(people, 'name', true);
-```
-```
+
+// Result: 
 {
   Mary: [ { surname: 'Jane', age: 28 } ],
   John: [
@@ -58,11 +58,10 @@ indexBy(people, 'name', true);
 }
 ```
 
-
 ```
 indexBy(people, ({ name, surname }) => `${surname}, ${name}`, false);
-```
-```
+
+// Result: 
 {
  'Jane, Mary: { name: 'Mary', surname: 'Jane', age: 28 },
  'Smith, John': { name: 'John', surname: 'Smith', age: 24 },
@@ -70,11 +69,20 @@ indexBy(people, ({ name, surname }) => `${surname}, ${name}`, false);
 }
 ```
 
+```
+indexBy(people, ['name', 'surname'], false));
+
+// Result: 
+{
+ Mary: { Jane: { age: 28 }},
+ John: { Smith: { age: 24 }, Doe: { age: 32 }}
+}
+```
 
 ```
 indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true);
-```
-```
+
+// Result: 
 {
   '20s': [
     { name: 'Mary', surname: 'Jane', age: 28 },

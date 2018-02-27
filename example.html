@@ -31,6 +31,12 @@
      'Doe, John': { name: 'John', surname: 'Doe', age: 32 }
     } */
 
+    console.log(indexBy(people, ['name', 'surname'], false));
+    /* {
+     Mary: { Jane: { age: 28 }},
+     John: { Smith: { age: 24 }, Doe: { age: 32 }}
+   } */
+
     console.log(indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true));
     /* {
       '20s': [
