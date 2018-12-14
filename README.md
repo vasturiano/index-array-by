@@ -93,7 +93,8 @@ indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true);
 }
 ```
 
-This `multiItem` parameter also accepts a transformation function with the method to reduce multiple items into a single one. In this case, it's keeping only the max age.
+
+The `multiItem` parameter also accepts a transformation function with the method to reduce multiple items into a single one. In this case, it's keeping only the max age.
 
 ```
 indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
@@ -105,6 +106,7 @@ indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
   Mary: 28
 }
 ```
+
 
 A fourth optional parameter (`flattenKeys`) (default: `false`) allows you to receive a flat array structure instead of the default nested format, with each item formatted as `{ keys: [<ordered unique keys for the item>], vals: <single or multiple item> }`.
 
