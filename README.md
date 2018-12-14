@@ -33,9 +33,7 @@ const people = [
 
 Use `indexBy` to index it by a given attribute (string type `keyAccessor`) or any other custom criteria (function type `keyAccessor`). You can also pass an array of `keyAccessors` to retrieve a nested object recursively indexed by the multiple keys.
 
-Use the third parameter (`multiItem`) to indicate whether each key should point to a single item (unadvised if the keys are not unique) or an array of multiple items (default behavior). This parameter also accepts a transformation function with the method to reduce multiple items into a single one.
-
-A fourth optional parameter (`flattenKeys`) (default: `false`) allows you to receive a flat array structure instead of the default nested format, with each item formatted as `{ keys: [<ordered unique keys for the item>], vals: <single or multiple item> }`.
+Use the third parameter (`multiItem`) to indicate whether each key should point to a single item (unadvised if the keys are not unique) or an array of multiple items (default behavior). 
 
 ```
 indexBy(people, 'surname', false);
@@ -95,6 +93,8 @@ indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true);
 }
 ```
 
+This `multiItem` parameter also accepts a transformation function with the method to reduce multiple items into a single one. In this case, it's keeping only the max age.
+
 ```
 indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
 
@@ -105,6 +105,8 @@ indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
   Mary: 28
 }
 ```
+
+A fourth optional parameter (`flattenKeys`) (default: `false`) allows you to receive a flat array structure instead of the default nested format, with each item formatted as `{ keys: [<ordered unique keys for the item>], vals: <single or multiple item> }`.
 
 ```
 indexBy(people, ['name', 'surname'], true, true));
