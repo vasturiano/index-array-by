@@ -40,11 +40,13 @@ export default (list, keyAccessors, multiItem = true, flattenKeys = false) => {
 
   if (multiItem  instanceof Function) {
     // Reduce leaf multiple values
-    let leafGroup = indexedResult;
-    for(let i = 1; i < keys.length - 1; i++) {
-      leafGroup = Object.values(leafGroup);
-    }
-    Object.keys(leafGroup).forEach(k => leafGroup[k] = multiItem(leafGroup[k]));
+    (function reduce(node, level = 1) {
+      if (level === keys.length) {
+        Object.keys(node).forEach(k => node[k] = multiItem(node[k]));
+      } else {
+        Object.values(node).forEach(child => reduce(child, level + 1));
+      }
+    })(indexedResult); // IIFE
   }
 
   let result = indexedResult;
@@ -63,7 +65,7 @@ export default (list, keyAccessors, multiItem = true, flattenKeys = false) => {
         Object.entries(node)
           .forEach(([key, val]) => flatten(val, [...accKeys, key]));
       }
-    })(indexedResult); //IIFS
+    })(indexedResult); //IIFE
   }
 
   return result;
