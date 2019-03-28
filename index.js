@@ -16,7 +16,7 @@ export default (list, keyAccessors, multiItem = true, flattenKeys = false) => {
         key = propVal;
         itemVal = rest;
       } else {
-        key = keyAccessor(itemVal);
+        key = keyAccessor(itemVal, idx);
       }
 
       if (idx + 1 < keys.length) {
