@@ -1,9 +1,9 @@
 {
   "presets": [
-    ["es2015", { "modules": "umd" }]
+    ["@babel/preset-env", { "modules": false }]
   ],
   "plugins": [
-      "add-module-exports",
-      "transform-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
