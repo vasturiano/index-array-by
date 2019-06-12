@@ -1,6 +1,6 @@
 {
   "name": "index-array-by",
-  "version": "1.1.0",
+  "version": "1.2.3",
   "description": "A utility function to index arrays by any criteria",
   "unpkg": "dist/index-array-by.min.js",
   "main": "dist/index-array-by.common.js",
