@@ -1,10 +1,13 @@
-# index-array-by
+index-array-by
+==============
+
+[![NPM package][npm-img]][npm-url]
+[![Build Size][build-size-img]][build-size-url]
+[![Dependencies][dependencies-img]][dependencies-url]
 
 A utility function to index arrays by any criteria.
 
 `indexBy(list, keyAccessors, multiItem = true)`
-
-[![NPM](https://nodei.co/npm/index-array-by.png?compact=true)](https://nodei.co/npm/index-array-by/)
 
 ## Quick start
 
@@ -120,3 +123,11 @@ indexBy(people, ['name', 'surname'], true, true));
   { keys: ['John', 'Doe'], vals: [{ age: 32 }] }
 ]
 ```
+
+
+[npm-img]: https://img.shields.io/npm/v/index-array-by.svg
+[npm-url]: https://npmjs.org/package/index-array-by
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/index-array-by.svg
+[build-size-url]: https://bundlephobia.com/result?p=index-array-by
+[dependencies-img]: https://img.shields.io/david/vasturiano/index-array-by.svg
+[dependencies-url]: https://david-dm.org/vasturiano/index-array-by
