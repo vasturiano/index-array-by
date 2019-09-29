@@ -1,6 +1,8 @@
-export default (list, keyAccessors, multiItem = true, flattenKeys = false) => {
+export default (list = [], keyAccessors = [], multiItem = true, flattenKeys = false) => {
 
-  const keys = (keyAccessors instanceof Array ? keyAccessors : [keyAccessors]).map(key => ({
+  const keys = (keyAccessors instanceof Array
+    ? (keyAccessors.length ? keyAccessors : [undefined])
+    : [keyAccessors]).map(key => ({
     keyAccessor: key,
     isProp: !(key instanceof Function)
   }));
@@ -66,6 +68,11 @@ export default (list, keyAccessors, multiItem = true, flattenKeys = false) => {
           .forEach(([key, val]) => flatten(val, [...accKeys, key]));
       }
     })(indexedResult); //IIFE
+
+    if (keyAccessors instanceof Array && keyAccessors.length === 0 && result.length === 1) {
+      // clear keys if there's no key accessors (single result)
+      result[0].keys = [];
+    }
   }
 
   return result;
