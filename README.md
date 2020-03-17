@@ -67,7 +67,7 @@ indexBy(people, ({ name, surname }) => `${surname}, ${name}`, false);
 
 // Result: 
 {
- 'Jane, Mary: { name: 'Mary', surname: 'Jane', age: 28 },
+ 'Jane, Mary': { name: 'Mary', surname: 'Jane', age: 28 },
  'Smith, John': { name: 'John', surname: 'Smith', age: 24 },
  'Doe, John': { name: 'John', surname: 'Doe', age: 32 }
 }

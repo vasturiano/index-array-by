@@ -1,18 +1,58 @@
 import babel from 'rollup-plugin-babel';
-import { name, homepage, version } from './package.json';
+import { terser } from "rollup-plugin-terser";
+import dts from 'rollup-plugin-dts';
+import { name, homepage, version, dependencies } from './package.json';
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
-      format: 'umd',
-      name: 'indexBy',
-      file: `dist/${name}.js`,
-      sourcemap: true,
-      banner: `// Version ${version} ${name} - ${homepage}`
-    }
-  ],
-  plugins: [
-    babel({ exclude: 'node_modules/**' })
-  ]
+const umdConf = {
+  format: 'umd',
+  name: 'indexBy',
+  banner: `// Version ${version} ${name} - ${homepage}`
 };
+
+export default [
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        ...umdConf,
+        file: `dist/${name}.js`,
+        sourcemap: true
+      },
+      { // minify
+        ...umdConf,
+        file: `dist/${name}.min.js`,
+        plugins: [terser({
+          output: { comments: '/Version/' }
+        })]
+      }
+    ],
+    plugins: [
+      babel({ exclude: 'node_modules/**' })
+    ]
+  },
+  { // commonJs and ES modules
+    input: 'src/index.js',
+    output: [
+      {
+        format: 'cjs',
+        file: `dist/${name}.common.js`
+      },
+      {
+        format: 'es',
+        file: `dist/${name}.module.js`
+      }
+    ],
+    external: Object.keys(dependencies),
+    plugins: [
+      babel()
+    ]
+  },
+  { // expose TS declarations
+    input: 'src/index.d.ts',
+    output: [{
+      file: `dist/${name}.d.ts`,
+      format: 'es'
+    }],
+    plugins: [dts()],
+  }
+];
