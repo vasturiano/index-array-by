@@ -3,7 +3,7 @@ index-array-by
 
 [![NPM package][npm-img]][npm-url]
 [![Build Size][build-size-img]][build-size-url]
-[![Dependencies][dependencies-img]][dependencies-url]
+[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 
 A utility function to index arrays by any criteria.
 
@@ -11,22 +11,22 @@ A utility function to index arrays by any criteria.
 
 ## Quick start
 
-```
+```js
 import indexBy from 'index-array-by';
 ```
 or
-```
+```js
 const indexBy = require('index-array-by');
 ```
 or even
-```
+```html
 <script src="//unpkg.com/index-array-by"></script>
 ```
 
 ## Usage example
 
 Given an array
-```
+```js
 const people = [
     { name: 'Mary', surname: 'Jane', age: 28 },
     { name: 'John', surname: 'Smith', age: 24 },
@@ -38,7 +38,7 @@ Use `indexBy` to index it by a given attribute (string type `keyAccessor`) or an
 
 Use the third parameter (`multiItem`) to indicate whether each key should point to a single item (unadvised if the keys are not unique) or an array of multiple items (default behavior). 
 
-```
+```js
 indexBy(people, 'surname', false);
 
 // Result: 
@@ -49,7 +49,7 @@ indexBy(people, 'surname', false);
 }
 ```
 
-```
+```js
 indexBy(people, 'name', true);
 
 // Result: 
@@ -62,7 +62,7 @@ indexBy(people, 'name', true);
 }
 ```
 
-```
+```js
 indexBy(people, ({ name, surname }) => `${surname}, ${name}`, false);
 
 // Result: 
@@ -73,7 +73,7 @@ indexBy(people, ({ name, surname }) => `${surname}, ${name}`, false);
 }
 ```
 
-```
+```js
 indexBy(people, ['name', 'surname'], false));
 
 // Result: 
@@ -83,7 +83,7 @@ indexBy(people, ['name', 'surname'], false));
 }
 ```
 
-```
+```js
 indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true);
 
 // Result: 
@@ -99,7 +99,7 @@ indexBy(people, ({ age }) => `${Math.floor(age / 10) * 10}s`, true);
 
 The `multiItem` parameter also accepts a transformation function with the method to reduce multiple items into a single one. In this case, it's keeping only the max age.
 
-```
+```js
 indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
 
 // Result:
@@ -113,7 +113,7 @@ indexBy(people, 'name', items => Math.max(...items.map(item => item.age)));
 
 A fourth optional parameter (`flattenKeys`) (default: `false`) allows you to receive a flat array structure instead of the default nested format, with each item formatted as `{ keys: [<ordered unique keys for the item>], vals: <single or multiple item> }`.
 
-```
+```js
 indexBy(people, ['name', 'surname'], true, true));
 
 // Result: 
@@ -125,9 +125,9 @@ indexBy(people, ['name', 'surname'], true, true));
 ```
 
 
-[npm-img]: https://img.shields.io/npm/v/index-array-by.svg
+[npm-img]: https://img.shields.io/npm/v/index-array-by
 [npm-url]: https://npmjs.org/package/index-array-by
-[build-size-img]: https://img.shields.io/bundlephobia/minzip/index-array-by.svg
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/index-array-by
 [build-size-url]: https://bundlephobia.com/result?p=index-array-by
-[dependencies-img]: https://img.shields.io/david/vasturiano/index-array-by.svg
-[dependencies-url]: https://david-dm.org/vasturiano/index-array-by
+[npm-downloads-img]: https://img.shields.io/npm/dt/index-array-by
+[npm-downloads-url]: https://www.npmtrends.com/index-array-by
