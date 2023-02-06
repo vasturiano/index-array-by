@@ -14,11 +14,7 @@ A utility function to index arrays by any criteria.
 ```js
 import indexBy from 'index-array-by';
 ```
-or
-```js
-const indexBy = require('index-array-by');
-```
-or even
+or using a *script* tag
 ```html
 <script src="//unpkg.com/index-array-by"></script>
 ```
