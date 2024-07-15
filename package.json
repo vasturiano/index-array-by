@@ -10,7 +10,8 @@
   "types": "dist/index-array-by.d.ts",
   "exports": {
     "umd": "./dist/index-array-by.min.js",
-    "default": "./dist/index-array-by.mjs"
+    "default": "./dist/index-array-by.mjs",
+    "types": "./dist/index-array-by.d.ts"
   },
   "sideEffects": false,
   "repository": {
