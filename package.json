@@ -9,9 +9,9 @@
   "module": "dist/index-array-by.mjs",
   "types": "dist/index-array-by.d.ts",
   "exports": {
+    "types": "./dist/index-array-by.d.ts",
     "umd": "./dist/index-array-by.min.js",
-    "default": "./dist/index-array-by.mjs",
-    "types": "./dist/index-array-by.d.ts"
+    "default": "./dist/index-array-by.mjs"
   },
   "sideEffects": false,
   "repository": {
