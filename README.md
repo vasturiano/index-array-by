@@ -16,7 +16,7 @@ import indexBy from 'index-array-by';
 ```
 or using a *script* tag
 ```html
-<script src="//unpkg.com/index-array-by"></script>
+<script src="//cdn.jsdelivr.net/npm/index-array-by"></script>
 ```
 
 ## Usage example
